@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive UI Layout</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif;">
+
+  <!-- Header -->
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 20px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000;">
+   <img src="https://firstnews.co.in/wp-content/uploads/2023/01/Masai-School_Logo-2048x528.png" alt=""
+       style="height:20px;">
+    <nav id="nav-links" style="display: flex; gap: 20px; align-items: center;">
+      <a href="#" style="text-decoration: none; color: black;">COURSES</a>
+      <a href="#" style="text-decoration: none; color: black;">FEES & ISA</a>
+      <a href="#" style="text-decoration: none; color: black;">ABOUT US</a>
+      <a href="#" style="text-decoration: none; color: black;">HIRE FROM US</a>
+      <a href="#" style="text-decoration: none; color: black;">FAQ</a>
+      <a href="#" style="text-decoration: none; color: black;">EVENTS</a>
+      <a href="#" style="text-decoration: none; color: black;">REFER & EARN</a>
+      <button style="border: 1px solid #f00; background-color: transparent; padding: 5px 15px; border-radius: 5px; color: #f00; cursor: pointer;">LOGIN</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section style="text-align: center; padding: 50px 20px; background-color: #f7f7f7;">
+    <h1 style="font-size: 40px; font-weight: bold; margin-bottom: 10px;">Driven by Outcomes, <br> Fuelled by Ambitions.</h1>
+    <p style="font-size: 18px; color: #555;">Launch your dream career at <u>0 upfront fee</u>.</p>
+    <button style="background-color: #f00; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">APPLY NOW FOR FREE</button>
+  </section>
+
+  <!-- Additional Section -->
+  <section style="text-align: center; padding: 30px; background-color: #fff;">
+    <h2 style="font-size: 24px; margin-bottom: 10px;">Have a Dream Company in Mind?</h2>
+    <p style="font-size: 16px; color: #555;">Meet Some of Our 1400+ Hiring Partners</p>
+  </section>
+
+  <!-- Responsive CSS -->
+  <style>
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      #nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 14px;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      header {
+        padding: 10px;
+      }
+    }
+  </style>
+
+</body>
+</html>

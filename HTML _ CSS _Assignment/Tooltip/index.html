@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .tooltip-container {
+      display: inline-block;
+      margin: 20px;
+      position: relative;
+    }
+
+    .tooltip {
+      visibility: hidden;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 5px 10px;
+      border-radius: 4px;
+      position: absolute;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .tooltip-container:hover .tooltip {
+      visibility: visible;
+    }
+
+    /* Top Tooltip */
+    .tooltip-top {
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tooltip-top::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+    }
+
+    /* Bottom Tooltip */
+    .tooltip-bottom {
+      top: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tooltip-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent black transparent;
+    }
+
+    /* Left Tooltip */
+    .tooltip-left {
+      top: 50%;
+      right: 125%;
+      transform: translateY(-50%);
+    }
+
+    .tooltip-left::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent black;
+    }
+
+    /* Right Tooltip */
+    .tooltip-right {
+      top: 50%;
+      left: 125%;
+      transform: translateY(-50%);
+    }
+
+    .tooltip-right::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent black transparent transparent;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: teal;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: darkcyan;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Tooltip Example</h1>
+  
+  <div class="tooltip-container">
+    <button class="button">Left</button>
+    <div class="tooltip tooltip-left">Tooltip on Left</div>
+  </div>
+
+  <div class="tooltip-container">
+    <button class="button">Top</button>
+    <div class="tooltip tooltip-top">Tooltip on Top</div>
+  </div>
+
+  <div class="tooltip-container">
+    <button class="button">Bottom</button>
+    <div class="tooltip tooltip-bottom">Tooltip on Bottom</div>
+  </div>
+
+  <div class="tooltip-container">
+    <button class="button">Right</button>
+    <div class="tooltip tooltip-right">Tooltip on Right</div>
+  </div>
+</body>
+</html>

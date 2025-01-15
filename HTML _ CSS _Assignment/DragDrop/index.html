@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .draggable {
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #000;
+      cursor: grab;
+      display: flex;
+      align-items: center;
+    }
+    .dragging {
+      background-color: #f0f0f0;
+      opacity: 0.7;
+    }
+    .placeholder {
+      border: 2px dashed #aaa;
+      margin: 5px 0;
+      padding: 15px;
+      min-height: 20px;
+    }
+
+    #drag{
+text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <h1 id="drag">Drag and Darp</h1>
+  <ul id="list">
+    <li class="draggable" draggable="true">Item 1</li>
+    <li class="draggable" draggable="true">Item 2</li>
+    <li class="draggable" draggable="true">Item 3</li>
+    <li class="draggable" draggable="true">Item 4</li>
+    <li class="draggable" draggable="true">Item 5</li>
+  </ul>
+
+  <script>
+    const list = document.getElementById("list");
+    let draggedItem = null;
+
+    list.addEventListener("dragstart", (event) => {
+      draggedItem = event.target;
+      event.target.classList.add("dragging");
+      setTimeout(() => event.target.style.display = "none", 0); 
+    });
+
+    list.addEventListener("dragend", (event) => {
+      event.target.style.display = "block"; 
+      event.target.classList.remove("dragging");
+      draggedItem = null;
+    });
+
+    list.addEventListener("dragover", (event) => {
+      event.preventDefault(); 
+      const closestItem = getClosestDraggable(event.clientY);
+      if (closestItem) {
+        list.insertBefore(draggedItem, closestItem);
+      } else {
+        list.appendChild(draggedItem);
+      }
+    });
+
+    function getClosestDraggable(y) {
+      const items = [...list.querySelectorAll(".draggable:not(.dragging)")];
+      return items.reduce((closest, item) => {
+        const box = item.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset, element: item };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+  </script>
+</body>
+</html>

@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+.bg {
+    background-image: url('../public/glass.png');
+    background-position: start;
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+    background-size: 100%;  
+  }
+  
+  
+@media (max-width: 1024px) { 
+  .bg {
+      background-image: none; 
+      background-color: #E2E8F0;
+  }
+}
+
+@media (min-width: 1025px) { 
+  .bg {
+      background-image: url('../public/glass.png');
+  }
+}

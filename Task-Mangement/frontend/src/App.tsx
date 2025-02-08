@@ -1,16 +1,24 @@
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
-import './App.css'
+import AppRoutes from "./routes/AppRoutes";
+import { ToastContainer } from "react-toastify";
+import Navbar from "./components/Navbar";
 
-function App() {
-
-
+const App = () => {
   return (
-   <div>
-    <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-   </div>
-  )
-}
+    <AuthProvider>
+      
+        <Router>
+          <div className="h-screen bg">
+          <Navbar/>
+          <AppRoutes />
+          </div>
+          <ToastContainer toastClassName="font-quicksand text-black font-medium" />
+        </Router>
+    
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;
